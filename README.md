@@ -8,15 +8,19 @@ PyTorch LSTM-based full-stack quantitative analysis and real-time inference web 
 ## ✨ 核心亮点 (Features)  
   
 - **🧠 深度学习架构**: 基于 PyTorch 构建多层 LSTM 神经网络，完美解决时间序列的长期记忆问题。原生代码支持 Apple M系列芯片 (MPS) 及 CUDA 硬件级加速计算，实现光速矩阵推理。  
-- **🧠 Deep Learning Architecture**: Build a multi-layer LSTM neural network based on PyTorch, perfectly solving the long-term memory problem of time series. The native code supports Apple M-series chips (MPS) and CUDA hardware-level accelerated computing for light-speed matrix inference.
 
 - **📊 动态沙盘回测**: 抛弃传统且具有欺骗性的“死循环”测试，利用滚动时间窗口对过去 100 个交易日进行即时推理，真实还原模型近期的推演胜率，严防“幸存者偏差”。  
-- **📊 Dynamic Sand Table Backtesting**: Abandon the traditional and deceptive "dead loop" testing and use a rolling time window to perform real-time inference on the past 100 trading days, truly restoring the model's recent deduction win rate and strictly preventing "survivor bias".
 
 - **📈 工业级可视化**: 抛弃简陋图表，集成 Plotly `make_subplots` 打造的专业级多图表联动（包含动态成交量副图、K线、十字光标全局联动），以及随胜率动态变色的荧光仪表盘 (Neon UI)。  
-- **📈 Industrial-grade visualization**: Ditch the rudimentary charts and integrate Plotly's `make_subplots` with professional-grade multi-chart linkage (including dynamic volume subcharts, candlesticks, and crossbar global linkage), as well as fluorescent dashboards (Neon UI) that dynamically change color with win rate.
 
 - **⚡ 沉浸式前端体验**: Streamlit 纯 Python 驱动，突破原生 UI 限制，深度适配操作系统的深色/浅色模式，利用内存级缓存 (`@st.cache_data`) 大幅降低 API 延迟与限流风险。  
+
+- **🧠 Deep Learning Architecture**: Build a multi-layer LSTM neural network based on PyTorch, perfectly solving the long-term memory problem of time series. The native code supports Apple M-series chips (MPS) and CUDA hardware-level accelerated computing for light-speed matrix inference.
+
+- **📊 Dynamic Sand Table Backtesting**: Abandon the traditional and deceptive "dead loop" testing and use a rolling time window to perform real-time inference on the past 100 trading days, truly restoring the model's recent deduction win rate and strictly preventing "survivor bias".
+
+- **📈 Industrial-grade visualization**: Ditch the rudimentary charts and integrate Plotly's `make_subplots` with professional-grade multi-chart linkage (including dynamic volume subcharts, candlesticks, and crossbar global linkage), as well as fluorescent dashboards (Neon UI) that dynamically change color with win rate.
+
 - **⚡ Immersive Front-End Experience**: Streamlit is powered by pure Python, breaking through the limitations of native UI, deeply adapting to the dark and light mode of the operating system, and utilizing memory-level caching ('@st.cache_data') to greatly reduce API latency and throttling risks.
 
 ## 🛠️ 技术栈 (Tech Stack)  
@@ -32,22 +36,25 @@ PyTorch LSTM-based full-stack quantitative analysis and real-time inference web 
 ### 1. 环境安装  
 推荐使用 Python 3.9+，克隆本仓库后，在终端执行以下命令安装依赖：  
 `pip install -r requirements.txt`  
-*(注：Mac M系列芯片用户推荐安装纯 CPU/MPS 版的 PyTorch 以优化内存占用。)* 
-### 1. Environment installation
-It is recommended to use Python 3.9+, after cloning this repository, run the following command in the terminal to install dependencies:
-`pip install -r requirements.txt`  
+*(注：Mac M系列芯片用户推荐安装纯 CPU/MPS 版的 PyTorch 以优化内存占用。)*  
   
 ### 2. 模型训练 (模型初始化与特征构建)  
 首次运行需要训练你的专属 AI 模型。运行以下脚本，系统会自动拉取股票数据、进行特征工程，并生成 `.pth` 模型权重文件和 `.pkl` 归一化缩放器：  
 `python3 train_lstm.py`  
-### 2. Model Training (Model Initialization and Feature Building)
-The first run requires training your proprietary AI model. Run the following script and the system automatically pulls stock data, performs feature engineering, and generates a .pth model weight file and a .pkl normalization scaler:
-`python3 train_lstm.py` 
-  
+
 ### 3. 启动量化终端   
 启动可视化看板，见证 AI 预测与回测沙盘：  
 `streamlit run dashboard.py`  
 *(启动后，浏览器将自动打开 `http://localhost:8501`。)* 
+
+### 1. Environment installation
+It is recommended to use Python 3.9+, after cloning this repository, run the following command in the terminal to install dependencies:
+`pip install -r requirements.txt` 
+
+### 2. Model Training (Model Initialization and Feature Building)
+The first run requires training your proprietary AI model. Run the following script and the system automatically pulls stock data, performs feature engineering, and generates a .pth model weight file and a .pkl normalization scaler:
+`python3 train_lstm.py` 
+  
 ### 3. Launch the Quantization Terminal
 Launch the visual Kanban board to witness the AI prediction and backtesting sandbox: 
 `streamlit run dashboard.py` 
